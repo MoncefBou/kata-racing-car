@@ -99,7 +99,7 @@ describe('Telemetry System', () => {
 			const instanceTelemetry = new TelemetryDiagnosticControls();
 			const telemtryDiagnosticControlsObject = convertTelemetryDiagnosticControlsInObject(instanceTelemetry);
 
-			expect(telemtryDiagnosticControlsObject).toMatchObject(basicTelemetryDiagnosticControls);
+			expect(telemtryDiagnosticControlsObject).toStrictEqual(basicTelemetryDiagnosticControls);
 		});
 		test('WriteDiagnosticInfo should change diagnosticInfo value of TelemetryDiagnosticControls instance', () => {
 			const instanceTelemetry = new TelemetryDiagnosticControls();
@@ -121,7 +121,7 @@ describe('Telemetry System', () => {
 			const instanceTelemetry = new TelemetryClient();
 			const telemetryClientObject = convertTelemetryClientInObject(instanceTelemetry);
 
-			expect(telemetryClientObject).toMatchObject(basicTelemetryClient);
+			expect(telemetryClientObject).toStrictEqual(basicTelemetryClient);
 		});
 		test('TelemetryClientConnection should throw error if valueDiagnosticChannelConnectionString is an empty string ', () => {
 			const instanceTelemetry = new TelemetryClient();
@@ -164,7 +164,7 @@ describe('Telemetry System', () => {
 				new SendDiagnosticMessage().send(newDiagnosticMessage, instanceTelemetryClient);
 				const telemetryClientObject = convertTelemetryClientInObject(instanceTelemetryClient);
 
-				expect(telemetryClientObject).toMatchObject(telemetryClientSendDiagnosticMessageResult);
+				expect(telemetryClientObject).toStrictEqual(telemetryClientSendDiagnosticMessageResult);
 			});
 			test('SendDiagnosticMessage should throw error if diagnosticMessage is an empty string ', () => {
 				const instanceTelemetryClient = new TelemetryClient();
@@ -188,7 +188,7 @@ describe('Telemetry System', () => {
 				new ReceiveDiagnosticMessage().receive(instanceTelemetryDiagnosticControls);
 				const telemetryDiagnosticControlsObject = convertTelemetryDiagnosticControlsInObject(instanceTelemetryDiagnosticControls);
 
-				expect(telemetryDiagnosticControlsObject).toMatchObject(telemetryDiagnosticControlsReceiveDiagnosticMessage);
+				expect(telemetryDiagnosticControlsObject).toStrictEqual(telemetryDiagnosticControlsReceiveDiagnosticMessage);
 			});
 			test('ReceiveDiagnosticMessage should change diagnosticInfo value for string value truthy and different from diagnosticMessageResult', () => {
 				const instanceTelemetryDiagnosticControls = new TelemetryDiagnosticControls();
