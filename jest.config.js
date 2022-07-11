@@ -7,7 +7,8 @@ module.exports = {
         'ts'
     ],
     testMatch: [
-        '**/telemetry-system-tests/**/*.test.(ts|js)'
+        '**/telemetry-system-tests/**/*.test.(ts|js)',
+        '**/text-converter-tests/**/*.test.(ts|js)',
       ],
     testEnvironment: 'node'
 }
